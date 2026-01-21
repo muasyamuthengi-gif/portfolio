@@ -345,7 +345,7 @@ export default function Home() {
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
         id="testimonials"
-        className="px-6 py-20 text-center"
+        className="border-t border-gray-900 px-6 py-20 text-center"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
