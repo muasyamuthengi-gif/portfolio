@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+/* ================= ANIMATIONS ================= */
+
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -11,6 +13,24 @@ const sectionVariants = {
     transition: { duration: 0.6 },
   },
 };
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 },
+  },
+};
+
+/* ================= PAGE ================= */
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,42 +47,61 @@ export default function Home() {
   return (
     <main className="bg-black text-white pt-24">
       {/* ================= HERO ================= */}
-      <motion.section
-        className="min-h-screen pt-40 px-6"
-        variants={sectionVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 items-center gap-20">
-          {/* Left */}
-          <div>
-            <p className="text-xs tracking-[0.3em] text-teal-400 mb-6">
+      <section id="home" className="min-h-screen pt-40 px-6">
+        <motion.div
+          className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center"
+          variants={sectionVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.p
+              variants={itemVariants}
+              className="text-xs tracking-[0.3em] text-teal-400 mb-6"
+            >
               FULL‑STACK DEVELOPER
-            </p>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.05]">
+            </motion.p>
+
+            <motion.h1
+              variants={itemVariants}
+              className="text-5xl md:text-7xl font-extrabold leading-[1.05]"
+            >
               Hi, I&apos;m <span className="text-teal-400">Bonface</span>
-            </h1>
-            <p className="mt-8 text-lg text-gray-400 max-w-lg">
+            </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="mt-8 text-lg text-gray-400 max-w-lg"
+            >
               I build accessible, pixel‑perfect digital experiences using React,
               Next.js, and modern web technologies.
-            </p>
+            </motion.p>
 
-            <div className="mt-10 flex items-center gap-6">
-              <a
+            <motion.div variants={itemVariants} className="mt-10 flex gap-6">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#contact"
-                className="px-7 py-3 rounded-md bg-teal-400 text-black font-semibold hover:bg-teal-300 transition"
+                className="px-7 py-3 rounded-md bg-teal-400 text-black font-semibold"
               >
                 Let&apos;s Work Together →
-              </a>
-              <a
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="/resume.pdf"
-                className="px-7 py-3 rounded-md border border-gray-700 hover:bg-gray-900 transition"
+                className="px-7 py-3 rounded-md border border-gray-700"
               >
                 Download CV
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
-            <div className="mt-14 flex gap-14">
+            <motion.div variants={itemVariants} className="mt-14 flex gap-14">
               {[
                 ["2+", "Years Experience"],
                 ["50+", "Projects"],
@@ -73,11 +112,15 @@ export default function Home() {
                   <p className="text-sm text-gray-500 mt-1">{label}</p>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Right */}
-          <div className="flex justify-center lg:justify-end">
+          <motion.div
+            className="flex justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="relative w-[320px] h-[320px]">
               <div className="absolute inset-0 rounded-full border border-teal-400/40" />
               <img
@@ -86,9 +129,9 @@ export default function Home() {
                 className="w-full h-full rounded-full object-cover relative"
               />
             </div>
-          </div>
-        </div>
-      </motion.section>
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* ================= ABOUT ================= */}
       <motion.section
@@ -108,69 +151,35 @@ export default function Home() {
               Crafting digital experiences with precision
             </h2>
             <p className="text-gray-400">
-              I build clean, scalable, and user-focused applications with strong
+              I build clean, scalable, and user‑focused applications with strong
               performance and thoughtful design systems.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {["Clean Code", "Design Systems", "Performance", "Collaboration"].map(
               (item) => (
-                <div
+                <motion.div
                   key={item}
-                  className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
+                  variants={itemVariants}
+                  whileHover={{ y: -6 }}
+                  className="p-6 rounded-xl border border-gray-800"
                 >
                   <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
                   <h3 className="font-semibold mb-2">{item}</h3>
                   <p className="text-sm text-gray-400">
-                    High-quality, maintainable solutions.
+                    High‑quality, maintainable solutions.
                   </p>
-                </div>
+                </motion.div>
               )
             )}
-          </div>
-
-          <div>
-            <h3 className="text-xl font-semibold mb-8">Technical Skills</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Frontend",
-                  skills: ["React", "Next.js", "TypeScript", "Tailwind", "Vue"],
-                },
-                {
-                  title: "Backend",
-                  skills: [
-                    "Node.js",
-                    "Python",
-                    "PostgreSQL",
-                    "MongoDB",
-                    "GraphQL",
-                  ],
-                },
-                {
-                  title: "Tools",
-                  skills: ["Git", "Docker", "AWS", "Figma", "VS Code"],
-                },
-              ].map((group) => (
-                <div key={group.title}>
-                  <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
-                    {group.title}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {group.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 text-sm rounded-md border border-gray-700 hover:border-teal-400/60 transition"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -184,55 +193,36 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
-                My Work
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Featured Projects
-              </h2>
-            </div>
-            <a
-              href="#"
-              className="mt-6 md:mt-0 text-sm text-teal-400 hover:underline"
-            >
-              View All Projects →
-            </a>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-16">
+            Featured Projects
+          </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "E-Commerce Platform",
-              "SaaS Dashboard",
-              "Portfolio Website",
-            ].map((title) => (
-              <div
-                key={title}
-                className="rounded-xl border border-gray-800 overflow-hidden hover:border-teal-400/60 transition"
-              >
-                <div className="aspect-video bg-gray-900" />
-                <div className="p-6">
-                  <h3 className="font-semibold mb-2 hover:text-teal-400 transition">
-                    {title}
-                  </h3>
-                  <p className="text-sm text-gray-400 mb-4">
-                    High-performance web application.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {["Next.js", "TypeScript", "Tailwind"].map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2 py-1 border border-gray-700 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {["E‑Commerce Platform", "SaaS Dashboard", "Portfolio Website"].map(
+              (title) => (
+                <motion.div
+                  key={title}
+                  variants={itemVariants}
+                  whileHover={{ y: -6 }}
+                  className="rounded-xl border border-gray-800 overflow-hidden"
+                >
+                  <div className="aspect-video bg-gray-900" />
+                  <div className="p-6">
+                    <h3 className="font-semibold mb-2">{title}</h3>
+                    <p className="text-sm text-gray-400">
+                      High‑performance web application.
+                    </p>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </motion.div>
+              )
+            )}
+          </motion.div>
         </div>
       </motion.section>
 
@@ -246,19 +236,17 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-20">
-            <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
-              Services
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              What I Can Do For You
-            </h2>
-            <p className="text-gray-400">
-              From idea to deployment, I deliver reliable and scalable solutions.
-            </p>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+            What I Can Do For You
+          </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {[
               "Web Development",
               "Frontend Engineering",
@@ -267,120 +255,132 @@ export default function Home() {
               "Performance Optimization",
               "Deployment & Maintenance",
             ].map((service) => (
-              <div
+              <motion.div
                 key={service}
-                className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
+                variants={itemVariants}
+                whileHover={{ y: -6 }}
+                className="p-6 rounded-xl border border-gray-800"
               >
-                <div className="w-14 h-14 mb-6 rounded-lg bg-teal-400/10" />
-                <h3 className="font-semibold text-xl mb-3 hover:text-teal-400 transition">
-                  {service}
-                </h3>
+                <h3 className="font-semibold text-xl mb-3">{service}</h3>
                 <p className="text-sm text-gray-400">
                   Professional, scalable solutions tailored to your needs.
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
         id="testimonials"
-        className="px-6 py-32"
+        className="px-6 py-32 text-center"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
-            Testimonials
-          </p>
-          <h2 className="text-3xl font-bold mb-6">What Clients Say</h2>
-          <p className="text-gray-400">Testimonials coming soon.</p>
-        </div>
+        <h2 className="text-3xl font-bold mb-4">Testimonials</h2>
+        <p className="text-gray-400">Coming soon.</p>
       </motion.section>
 
       {/* ================= CONTACT ================= */}
-      <motion.section
-        id="contact"
-        className="px-6 py-32"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-20">
-            <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
-              Get In Touch
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Let&apos;s Work Together
-            </h2>
+      <section id="contact" className="px-6 py-32">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+          <div>
+            <p className="mb-2">muasyamuthengi@gmail.com</p>
+            <p className="mb-2">+254715345572</p>
+            <p>Nairobi, Kenya</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              {[
-                "muasyamuthengi@gmail.com",
-                "+254715345572",
-                "Nairobi, Kenya",
-              ].map((item) => (
-                <div key={item} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-teal-400/10" />
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
+          <motion.div
+            className="p-8 rounded-xl border border-gray-800"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            {isSubmitted ? (
+              <p className="text-center text-teal-400 font-semibold">
+                Message sent successfully!
+              </p>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  required
+                  placeholder="Name"
+                  className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md"
+                />
+                <input
+                  required
+                  type="email"
+                  placeholder="Email"
+                  className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md"
+                />
+                <textarea
+                  required
+                  rows={5}
+                  placeholder="Message"
+                  className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md"
+                />
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  disabled={isSubmitting}
+                  className="w-full py-3 bg-teal-400 text-black rounded-md font-semibold"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </motion.button>
+              </form>
+            )}
+          </motion.div>
+        </div>
+      </section>
 
-            <div className="p-8 rounded-xl border border-gray-800">
-              {isSubmitted ? (
-                <div className="text-center py-16">
-                  <h3 className="text-2xl font-bold mb-3">Message Sent!</h3>
-                  <p className="text-gray-400">
-                    I&apos;ll get back to you shortly.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <input
-                      required
-                      placeholder="Name"
-                      className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md"
-                    />
-                    <input
-                      required
-                      type="email"
-                      placeholder="Email"
-                      className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md"
-                    />
-                  </div>
-                  <input
-                    required
-                    placeholder="Subject"
-                    className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md"
-                  />
-                  <textarea
-                    required
-                    rows={5}
-                    placeholder="Message"
-                    className="w-full px-4 py-3 bg-black border border-gray-700 rounded-md"
-                  />
-                  <button
-                    disabled={isSubmitting}
-                    className="w-full py-3 rounded-md bg-teal-400 text-black font-medium hover:bg-teal-300 transition"
+      {/* ================= FOOTER ================= */}
+      <footer className="border-t border-gray-800 px-6 py-16">
+        <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
+          <div>
+            <p className="text-xl font-bold">
+              Bonface<span className="text-teal-400">.</span>
+            </p>
+            <p className="text-sm text-gray-400 mt-2 max-w-sm">
+              Building accessible, pixel‑perfect digital experiences for the web.
+            </p>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold tracking-widest mb-4">
+              QUICK LINKS
+            </p>
+            <ul className="space-y-3 text-sm text-gray-400">
+              {["About", "Projects", "Services", "Contact"].map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="hover:text-teal-400 transition"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </button>
-                </form>
-              )}
-            </div>
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold tracking-widest mb-4">CONNECT</p>
+            <p className="text-sm text-gray-400">
+              muasyamuthengi@gmail.com
+            </p>
           </div>
         </div>
-      </motion.section>
+
+        <div className="border-t border-gray-800 mt-14 pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>© {new Date().getFullYear()} Bonface. All rights reserved.</p>
+          <p>
+            Built with <span className="text-teal-400">Next.js</span> &{" "}
+            <span className="text-teal-400">Tailwind CSS</span>
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }
