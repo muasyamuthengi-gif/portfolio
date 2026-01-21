@@ -27,13 +27,13 @@ export default function Home() {
   return (
     <main className="bg-black text-white pt-24">
       {/* ================= HERO ================= */}
-      <section className="min-h-screen pt-40 px-6">
-        <motion.div
-          className="max-w-7xl mx-auto grid lg:grid-cols-2 items-center gap-20"
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-        >
+      <motion.section
+        className="min-h-screen pt-40 px-6"
+        variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 items-center gap-20">
           {/* Left */}
           <div>
             <p className="text-xs tracking-[0.3em] text-teal-400 mb-6">
@@ -46,6 +46,7 @@ export default function Home() {
               I build accessible, pixel‑perfect digital experiences using React,
               Next.js, and modern web technologies.
             </p>
+
             <div className="mt-10 flex items-center gap-6">
               <a
                 href="#contact"
@@ -60,6 +61,7 @@ export default function Home() {
                 Download CV
               </a>
             </div>
+
             <div className="mt-14 flex gap-14">
               {[
                 ["2+", "Years Experience"],
@@ -85,19 +87,19 @@ export default function Home() {
               />
             </div>
           </div>
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
       {/* ================= ABOUT ================= */}
-      <section id="about" className="px-6 py-32">
-        <motion.div
-          className="max-w-7xl mx-auto"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {/* Header */}
+      <motion.section
+        id="about"
+        className="px-6 py-32"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-20">
             <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
               About Me
@@ -111,41 +113,30 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Highlights */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-            {[
-              "Clean Code",
-              "Design Systems",
-              "Performance",
-              "Collaboration",
-            ].map((item) => (
-              <div
-                key={item}
-                className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
-              >
-                <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
-                <h3 className="font-semibold mb-2">{item}</h3>
-                <p className="text-sm text-gray-400">
-                  High-quality, maintainable solutions.
-                </p>
-              </div>
-            ))}
+            {["Clean Code", "Design Systems", "Performance", "Collaboration"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
+                >
+                  <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
+                  <h3 className="font-semibold mb-2">{item}</h3>
+                  <p className="text-sm text-gray-400">
+                    High-quality, maintainable solutions.
+                  </p>
+                </div>
+              )
+            )}
           </div>
 
-          {/* Skills */}
           <div>
             <h3 className="text-xl font-semibold mb-8">Technical Skills</h3>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
                   title: "Frontend",
-                  skills: [
-                    "React",
-                    "Next.js",
-                    "TypeScript",
-                    "Tailwind",
-                    "Vue",
-                  ],
+                  skills: ["React", "Next.js", "TypeScript", "Tailwind", "Vue"],
                 },
                 {
                   title: "Backend",
@@ -180,18 +171,19 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
       {/* ================= PROJECTS ================= */}
-      <section id="projects" className="px-6 py-32">
-        <motion.div
-          className="max-w-7xl mx-auto"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+      <motion.section
+        id="projects"
+        className="px-6 py-32"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
             <div>
               <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
@@ -241,18 +233,19 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
       {/* ================= SERVICES ================= */}
-      <section id="services" className="px-6 py-32">
-        <motion.div
-          className="max-w-7xl mx-auto"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+      <motion.section
+        id="services"
+        className="px-6 py-32"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-20">
             <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
               Services
@@ -288,35 +281,37 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
       {/* ================= TESTIMONIALS ================= */}
-      <section id="testimonials" className="px-6 py-32">
-        <motion.div
-          className="max-w-4xl mx-auto text-center"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+      <motion.section
+        id="testimonials"
+        className="px-6 py-32"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
             Testimonials
           </p>
           <h2 className="text-3xl font-bold mb-6">What Clients Say</h2>
           <p className="text-gray-400">Testimonials coming soon.</p>
-        </motion.div>
-      </section>
+        </div>
+      </motion.section>
 
       {/* ================= CONTACT ================= */}
-      <section id="contact" className="px-6 py-32">
-        <motion.div
-          className="max-w-7xl mx-auto"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+      <motion.section
+        id="contact"
+        className="px-6 py-32"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-20">
             <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
               Get In Touch
@@ -327,7 +322,6 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left */}
             <div className="space-y-8">
               {[
                 "muasyamuthengi@gmail.com",
@@ -339,19 +333,8 @@ export default function Home() {
                   <p>{item}</p>
                 </div>
               ))}
-
-              <div className="p-6 rounded-xl border border-gray-800">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-3 w-3 rounded-full bg-green-400 animate-pulse" />
-                  <p>Available for new projects</p>
-                </div>
-                <p className="text-sm text-gray-400">
-                  Response time: 24–48 hours
-                </p>
-              </div>
             </div>
 
-            {/* Right */}
             <div className="p-8 rounded-xl border border-gray-800">
               {isSubmitted ? (
                 <div className="text-center py-16">
@@ -396,62 +379,8 @@ export default function Home() {
               )}
             </div>
           </div>
-        </motion.div>
-      </section>
-            {/* ================= FOOTER ================= */}
-      <footer className="border-t border-gray-800 px-6 py-16">
-        <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
-          {/* Brand */}
-          <div>
-            <p className="text-xl font-bold">
-              Bonface<span className="text-teal-400">.</span>
-            </p>
-            <p className="text-sm text-gray-400 mt-2 max-w-sm">
-              Building accessible, pixel‑perfect digital experiences for the web.
-            </p>
-          </div>
-
-          {/* Links */}
-          <div>
-            <p className="text-sm font-semibold tracking-widest mb-4">
-              QUICK LINKS
-            </p>
-            <ul className="space-y-3 text-sm text-gray-400">
-              {["About", "Projects", "Services", "Contact"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="hover:text-teal-400 transition"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <p className="text-sm font-semibold tracking-widest mb-4">
-              CONTACT
-            </p>
-            <p className="text-sm text-gray-400">
-              muasyamuthengi@gmail.com
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
-              Nairobi, Kenya
-            </p>
-          </div>
         </div>
-
-        <div className="border-t border-gray-800 mt-14 pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Bonface. All rights reserved.</p>
-          <p>
-            Built with <span className="text-teal-400">Next.js</span> &{" "}
-            <span className="text-teal-400">Tailwind CSS</span>
-          </p>
-        </div>
-      </footer>
+      </motion.section>
     </main>
   );
 }
