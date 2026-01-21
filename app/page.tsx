@@ -184,8 +184,7 @@ export default function Home() {
         performance and thoughtful design systems.
       </motion.p>
     </motion.div>
-
-    { /* ================= HIGHLIGHTS ================= */}
+{/* Highlights */}
 <motion.div
   className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
   variants={containerVariants}
@@ -194,37 +193,34 @@ export default function Home() {
   viewport={{ once: true }}
 >
   {[
-  {
-    icon: Code2,
-    title: "Clean Code",
-    description: "Readable, scalable, and maintainable codebases.",
-  },
-  {
-    icon: Paintbrush,
-    title: "Design Systems",
-    description: "Consistent UI patterns with modern design principles.",
-  },
-  {
-    icon: Zap,
-    title: "Performance",
-    description: "Fast-loading, optimized web applications.",
-  },
-  {
-    icon: Users,
-    title: "Collaboration",
-    description: "Clear communication and team-first mindset.",
-  },
-].map(({ icon: Icon, title, description }) => (
-   <motion.div
-  key={title}
-  variants={itemVariants}
-  whileHover={{ scale: 1.05, y: -6 }}
-  className="p-6 rounded-xl border border-gray-800"
->
-  <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
-
-  <h3 className="font-semibold mb-2">{title}</h3>
-  <p className="text-sm text-gray-400">{description}</p>
+    {
+      title: "Clean Code",
+      description: "Readable, scalable, and maintainable codebases.",
+    },
+    {
+      title: "Design Systems",
+      description: "Consistent UI patterns and reusable components.",
+    },
+    {
+      title: "Performance",
+      description: "Fast, optimized experiences across devices.",
+    },
+    {
+      title: "Collaboration",
+      description: "Clear communication and teamwork.",
+    },
+  ].map(({ title, description }) => (
+    <motion.div
+      key={title}
+      variants={itemVariants}
+      whileHover={{ scale: 1.05, y: -6 }}
+      className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
+    >
+      <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
+      <h3 className="font-semibold mb-2">{title}</h3>
+      <p className="text-sm text-gray-400">{description}</p>
+    </motion.div>
+  ))}
 </motion.div>
 
     {/* Skills */}
