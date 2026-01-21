@@ -135,7 +135,7 @@ export default function Home() {
 {/* ================= ABOUT ================= */}
 <motion.section
   id="about"
-  className="px-6 py-16"
+  className="px-6 py-16 bg-zinc-950"
   variants={sectionVariants}
   initial="hidden"
   whileInView="visible"
@@ -300,7 +300,7 @@ export default function Home() {
       {/* ================= SERVICES ================= */}
       <motion.section
         id="services"
-        className="px-6 py-16"
+        className="px-6 py-16 bg-zinc-950"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -407,7 +407,7 @@ export default function Home() {
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className="border-t border-gray-800 px-6 py-16">
+      <footer className="border-t border-gray-800 px-6 py-16 bg-zinc-950">
         <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
           <div>
             <p className="text-xl font-bold">
