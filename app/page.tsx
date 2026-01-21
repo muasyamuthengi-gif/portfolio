@@ -132,58 +132,129 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-
-      {/* ================= ABOUT ================= */}
-      <motion.section
-        id="about"
-        className="px-6 py-32"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+{/* ================= ABOUT ================= */}
+<motion.section
+  id="about"
+  className="px-6 py-32"
+  variants={sectionVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  <div className="max-w-7xl mx-auto">
+    {/* Header */}
+    <motion.div
+      className="max-w-2xl mb-20"
+      variants={containerVariants}
+    >
+      <motion.p
+        variants={itemVariants}
+        className="text-sm uppercase tracking-widest text-teal-400 mb-4"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mb-20">
-            <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
-              About Me
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Crafting digital experiences with precision
-            </h2>
-            <p className="text-gray-400">
-              I build clean, scalable, and user‑focused applications with strong
-              performance and thoughtful design systems.
-            </p>
-          </div>
+        About Me
+      </motion.p>
 
+      <motion.h2
+        variants={itemVariants}
+        className="text-3xl md:text-4xl font-bold mb-6"
+      >
+        Crafting digital experiences with precision
+      </motion.h2>
+
+      <motion.p
+        variants={itemVariants}
+        className="text-gray-400"
+      >
+        I build clean, scalable, and user-focused applications with strong
+        performance and thoughtful design systems.
+      </motion.p>
+    </motion.div>
+
+    {/* Highlights */}
+    <motion.div
+      className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {[
+        "Clean Code",
+        "Design Systems",
+        "Performance",
+        "Collaboration",
+      ].map((item) => (
+        <motion.div
+          key={item}
+          variants={itemVariants}
+          whileHover={{ scale: 1.05, y: -6 }}
+          className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
+        >
+          <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
+          <h3 className="font-semibold mb-2">{item}</h3>
+          <p className="text-sm text-gray-400">
+            High-quality, maintainable solutions.
+          </p>
+        </motion.div>
+      ))}
+    </motion.div>
+
+    {/* Skills */}
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <motion.h3
+        variants={itemVariants}
+        className="text-xl font-semibold mb-8"
+      >
+        Technical Skills
+      </motion.h3>
+
+      <div className="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Frontend",
+            skills: ["React", "Next.js", "TypeScript", "Tailwind", "Vue"],
+          },
+          {
+            title: "Backend",
+            skills: ["Node.js", "Python", "PostgreSQL", "MongoDB", "GraphQL"],
+          },
+          {
+            title: "Tools",
+            skills: ["Git", "Docker", "AWS", "Figma", "VS Code"],
+          },
+        ].map((group) => (
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            key={group.title}
+            variants={itemVariants}
           >
-            {["Clean Code", "Design Systems", "Performance", "Collaboration"].map(
-              (item) => (
-                <motion.div
-                  key={item}
-                  variants={itemVariants}
-                  whileHover={{ y: -6 }}
-                  className="p-6 rounded-xl border border-gray-800"
-                >
-                  <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
-                  <h3 className="font-semibold mb-2">{item}</h3>
-                  <p className="text-sm text-gray-400">
-                    High‑quality, maintainable solutions.
-                  </p>
-                </motion.div>
-              )
-            )}
-          </motion.div>
-        </div>
-      </motion.section>
+            <p className="text-sm uppercase tracking-widest text-teal-400 mb-4">
+              {group.title}
+            </p>
 
-      {/* ================= PROJECTS ================= */}
+            <div className="flex flex-wrap gap-3">
+              {group.skills.map((skill) => (
+                <motion.span
+                  key={skill}
+                  whileHover={{ scale: 1.08 }}
+                  className="px-3 py-1 text-sm rounded-md border border-gray-700 hover:border-teal-400/60 transition"
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+       
+     {/* ================= PROJECTS ================= */}
       <motion.section
         id="projects"
         className="px-6 py-32"
