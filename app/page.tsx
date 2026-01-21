@@ -194,43 +194,42 @@ export default function Home() {
   viewport={{ once: true }}
 >
   {[
-    {
-      title: "Clean Code",
-      description: "Writing maintainable, scalable code following best practices.",
-      icon: Code2,
-    },
-    {
-      title: "Design Systems",
-      description: "Creating cohesive design systems and component libraries.",
-      icon: Paintbrush,
-    },
-    {
-      title: "Performance",
-      description: "Optimizing for speed, accessibility, and user experience.",
-      icon: Zap,
-    },
-    {
-      title: "Collaboration",
-      description: "Working effectively with teams and stakeholders.",
-      icon: Users,
-    },
-  ].map(({ title, description, icon: Icon }) => (
+  {
+    icon: Code2,
+    title: "Clean Code",
+    description: "Readable, scalable, and maintainable codebases.",
+  },
+  {
+    icon: Paintbrush,
+    title: "Design Systems",
+    description: "Consistent UI patterns with modern design principles.",
+  },
+  {
+    icon: Zap,
+    title: "Performance",
+    description: "Fast-loading, optimized web applications.",
+  },
+  {
+    icon: Users,
+    title: "Collaboration",
+    description: "Clear communication and team-first mindset.",
+  },
+].map(({ icon: Icon, title, description }) => (
     <motion.div
-      key={title}
-      variants={itemVariants}
-      whileHover={{ scale: 1.05, y: -6 }}
-      className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
-    >
-      <Paintbrush className="w-6 h-6 mb-4 text-teal-400 flex items-center justify-center" />
-        <Icon className="w-5 h-5 text-teal-400" />
-      </div>
+  key={title}
+  variants={itemVariants}
+  whileHover={{ scale: 1.05, y: -6 }}
+  className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
+>
+  <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+    <Icon className="w-6 h-6 text-teal-400" />
+  </div>
 
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <p className="text-sm text-gray-400">{description}</p>
-    </motion.div>
-  ))}
+  <h3 className="font-semibold mb-2">{title}</h3>
+  <p className="text-sm text-gray-400">{description}</p>
 </motion.div>
-    
+))}  
+  
     {/* Skills */}
     <motion.div
       variants={containerVariants}
