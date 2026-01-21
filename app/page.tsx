@@ -11,6 +11,12 @@ import {
   Database,
   Cloud,
 } from "lucide-react";
+import {
+  Code2,
+  Palette,
+  Zap,
+  Users,
+} from "lucide-react";
 
 /* ================= ANIMATIONS ================= */
 
@@ -179,35 +185,52 @@ export default function Home() {
       </motion.p>
     </motion.div>
 
-    {/* Highlights */}
+    { /* ================= HIGHLIGHTS ================= */}
+<motion.div
+  className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  {[
+    {
+      title: "Clean Code",
+      description: "Writing maintainable, scalable code following best practices.",
+      icon: Code2,
+    },
+    {
+      title: "Design Systems",
+      description: "Creating cohesive design systems and component libraries.",
+      icon: Palette,
+    },
+    {
+      title: "Performance",
+      description: "Optimizing for speed, accessibility, and user experience.",
+      icon: Zap,
+    },
+    {
+      title: "Collaboration",
+      description: "Working effectively with teams and stakeholders.",
+      icon: Users,
+    },
+  ].map(({ title, description, icon: Icon }) => (
     <motion.div
-      className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      key={title}
+      variants={itemVariants}
+      whileHover={{ scale: 1.05, y: -6 }}
+      className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
     >
-      {[
-        "Clean Code",
-        "Design Systems",
-        "Performance",
-        "Collaboration",
-      ].map((item) => (
-        <motion.div
-          key={item}
-          variants={itemVariants}
-          whileHover={{ scale: 1.05, y: -6 }}
-          className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
-        >
-          <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
-          <h3 className="font-semibold mb-2">{item}</h3>
-          <p className="text-sm text-gray-400">
-            High-quality, maintainable solutions.
-          </p>
-        </motion.div>
-      ))}
-    </motion.div>
+      <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+        <Icon className="w-5 h-5 text-teal-400" />
+      </div>
 
+      <h3 className="font-semibold mb-2">{title}</h3>
+      <p className="text-sm text-gray-400">{description}</p>
+    </motion.div>
+  ))}
+</motion.div>
+    
     {/* Skills */}
     <motion.div
       variants={containerVariants}
