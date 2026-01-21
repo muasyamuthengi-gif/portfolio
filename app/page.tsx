@@ -356,7 +356,7 @@ export default function Home() {
       </motion.section>
 
       {/* ================= CONTACT ================= */}
-<section id="contact" className="px-6 py-16">
+<section id="contact" className="px-6 py-16 bg-gray-950">
   <div className="max-w-7xl mx-auto">
 
     {/* Header (matches ABOUT structure) */}
