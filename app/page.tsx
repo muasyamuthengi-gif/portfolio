@@ -135,7 +135,7 @@ export default function Home() {
 {/* ================= ABOUT ================= */}
 <motion.section
   id="about"
-  className="px-6 py-32"
+  className="px-6 py-16"
   variants={sectionVariants}
   initial="hidden"
   whileInView="visible"
@@ -257,7 +257,7 @@ export default function Home() {
      {/* ================= PROJECTS ================= */}
       <motion.section
         id="projects"
-        className="px-6 py-32"
+        className="px-6 py-16"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -300,7 +300,7 @@ export default function Home() {
       {/* ================= SERVICES ================= */}
       <motion.section
         id="services"
-        className="px-6 py-32"
+        className="px-6 py-16"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -345,7 +345,7 @@ export default function Home() {
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
         id="testimonials"
-        className="px-6 py-32 text-center"
+        className="px-6 py-20 text-center"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -356,7 +356,7 @@ export default function Home() {
       </motion.section>
 
       {/* ================= CONTACT ================= */}
-      <section id="contact" className="px-6 py-32">
+      <section id="contact" className="px-6 py-16">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
           <div>
             <p className="mb-2">muasyamuthengi@gmail.com</p>
