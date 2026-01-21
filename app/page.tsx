@@ -12,7 +12,7 @@ import {
   Cloud,
 } from "lucide-react";
 import {
-  Code2,
+  Code,
   Paintbrush,
   Zap,
   Users,
