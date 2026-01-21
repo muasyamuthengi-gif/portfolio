@@ -184,7 +184,7 @@ export default function Home() {
         performance and thoughtful design systems.
       </motion.p>
     </motion.div>
-{/* Highlights */}
+    {/* Highlights */}
 <motion.div
   className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24"
   variants={containerVariants}
@@ -195,28 +195,35 @@ export default function Home() {
   {[
     {
       title: "Clean Code",
-      description: "Readable, scalable, and maintainable codebases.",
+      description: "Readable, maintainable, and scalable codebases.",
+      icon: Code,
     },
     {
       title: "Design Systems",
-      description: "Consistent UI patterns and reusable components.",
+      description: "Consistent UI components and visual language.",
+      icon: Paintbrush,
     },
     {
       title: "Performance",
-      description: "Fast, optimized experiences across devices.",
+      description: "Fast, optimized, and efficient applications.",
+      icon: Zap,
     },
     {
       title: "Collaboration",
-      description: "Clear communication and teamwork.",
+      description: "Clear communication and strong team collaboration.",
+      icon: Users,
     },
-  ].map(({ title, description }) => (
+  ].map(({ title, description, icon: Icon }) => (
     <motion.div
       key={title}
       variants={itemVariants}
       whileHover={{ scale: 1.05, y: -6 }}
       className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
     >
-      <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10" />
+      <div className="w-10 h-10 mb-4 flex items-center justify-center rounded-md bg-teal-400/10">
+        <Icon className="w-5 h-5 text-teal-400" />
+      </div>
+
       <h3 className="font-semibold mb-2">{title}</h3>
       <p className="text-sm text-gray-400">{description}</p>
     </motion.div>
