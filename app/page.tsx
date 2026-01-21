@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 /* ================= ANIMATIONS ================= */
 
@@ -376,17 +377,22 @@ export default function Home() {
     <div className="grid lg:grid-cols-2 gap-12">
 
       {/* Left */}
-      <div className="space-y-8">
-        {[
-          "muasyamuthengi@gmail.com",
-          "+254715345572",
-          "Nairobi, Kenya",
-        ].map((item) => (
-          <div key={item} className="flex gap-4 items-center">
-            <div className="w-12 h-12 rounded-lg bg-teal-400/10" />
-            <p>{item}</p>
-          </div>
-        ))}
+      <div className="space-y-4">
+  <div className="flex items-center gap-3">
+    <Mail className="w-5 h-5 text-teal-400" />
+    <p>muasyamuthengi@gmail.com</p>
+  </div>
+
+  <div className="flex items-center gap-3">
+    <Phone className="w-5 h-5 text-teal-400" />
+    <p>+254715345572</p>
+  </div>
+
+  <div className="flex items-center gap-3">
+    <MapPin className="w-5 h-5 text-teal-400" />
+    <p>Nairobi, Kenya</p>
+  </div>
+</div>
 
         <div className="p-6 rounded-xl border border-gray-800">
           <div className="flex items-center gap-3 mb-2">
