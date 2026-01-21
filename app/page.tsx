@@ -3,6 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
+import {
+  Code2,
+  Smartphone,
+  Palette,
+  Gauge,
+  Database,
+  Cloud,
+} from "lucide-react";
 
 /* ================= ANIMATIONS ================= */
 
@@ -297,51 +305,157 @@ export default function Home() {
           </motion.div>
         </div>
       </motion.section>
+{/* ================= SERVICES ================= */}
+<motion.section
+  id="services"
+  className="px-6 py-16 bg-zinc-950"
+  variants={sectionVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+      What I Can Do For You
+    </h2>
 
-      {/* ================= SERVICES ================= */}
-      <motion.section
-        id="services"
-        className="px-6 py-16 bg-zinc-950"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+    <motion.div
+      className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {/* Web Development */}
+      <motion.div
+        variants={itemVariants}
+        whileHover={{ y: -6 }}
+        className="p-6 rounded-xl border border-gray-800"
       >
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            What I Can Do For You
-          </h2>
-
-          <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              "Web Development",
-              "Frontend Engineering",
-              "Backend Development",
-              "UI / UX",
-              "Performance Optimization",
-              "Deployment & Maintenance",
-            ].map((service) => (
-              <motion.div
-                key={service}
-                variants={itemVariants}
-                whileHover={{ y: -6 }}
-                className="p-6 rounded-xl border border-gray-800"
-              >
-                <h3 className="font-semibold text-xl mb-3">{service}</h3>
-                <p className="text-sm text-gray-400">
-                  Professional, scalable solutions tailored to your needs.
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+        <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+          <Code2 className="text-teal-400" size={20} />
         </div>
-      </motion.section>
+        <h3 className="font-semibold text-xl mb-2">Web Development</h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Building responsive, performant websites and web applications using
+          modern frameworks and best practices.
+        </p>
+        <ul className="text-sm text-gray-400 space-y-2">
+          <li>• Custom Web Apps</li>
+          <li>• E-commerce Solutions</li>
+          <li>• CMS Integration</li>
+        </ul>
+      </motion.div>
+
+      {/* Mobile-First Design */}
+      <motion.div
+        variants={itemVariants}
+        whileHover={{ y: -6 }}
+        className="p-6 rounded-xl border border-gray-800"
+      >
+        <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+          <Smartphone className="text-teal-400" size={20} />
+        </div>
+        <h3 className="font-semibold text-xl mb-2">Mobile-First Design</h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Creating responsive designs that look and work beautifully on all
+          devices, from mobile to desktop.
+        </p>
+        <ul className="text-sm text-gray-400 space-y-2">
+          <li>• Responsive Layouts</li>
+          <li>• Progressive Web Apps</li>
+          <li>• Touch-Friendly UI</li>
+        </ul>
+      </motion.div>
+
+      {/* UI/UX Design */}
+      <motion.div
+        variants={itemVariants}
+        whileHover={{ y: -6 }}
+        className="p-6 rounded-xl border border-gray-800"
+      >
+        <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+          <Palette className="text-teal-400" size={20} />
+        </div>
+        <h3 className="font-semibold text-xl mb-2">UI/UX Design</h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Designing intuitive user interfaces and experiences that delight users
+          and drive engagement.
+        </p>
+        <ul className="text-sm text-gray-400 space-y-2">
+          <li>• User Research</li>
+          <li>• Wireframing</li>
+          <li>• Prototyping</li>
+        </ul>
+      </motion.div>
+
+      {/* Performance Optimization */}
+      <motion.div
+        variants={itemVariants}
+        whileHover={{ y: -6 }}
+        className="p-6 rounded-xl border border-gray-800"
+      >
+        <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+          <Gauge className="text-teal-400" size={20} />
+        </div>
+        <h3 className="font-semibold text-xl mb-2">
+          Performance Optimization
+        </h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Improving website speed, Core Web Vitals, and overall performance for
+          better user experience and SEO.
+        </p>
+        <ul className="text-sm text-gray-400 space-y-2">
+          <li>• Speed Audits</li>
+          <li>• Code Optimization</li>
+          <li>• CDN Setup</li>
+        </ul>
+      </motion.div>
+
+      {/* Backend Development */}
+      <motion.div
+        variants={itemVariants}
+        whileHover={{ y: -6 }}
+        className="p-6 rounded-xl border border-gray-800"
+      >
+        <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+          <Database className="text-teal-400" size={20} />
+        </div>
+        <h3 className="font-semibold text-xl mb-2">Backend Development</h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Building robust APIs, database architectures, and server-side logic to
+          power your applications.
+        </p>
+        <ul className="text-sm text-gray-400 space-y-2">
+          <li>• REST & GraphQL APIs</li>
+          <li>• Database Design</li>
+          <li>• Authentication</li>
+        </ul>
+      </motion.div>
+
+      {/* Cloud & DevOps */}
+      <motion.div
+        variants={itemVariants}
+        whileHover={{ y: -6 }}
+        className="p-6 rounded-xl border border-gray-800"
+      >
+        <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+          <Cloud className="text-teal-400" size={20} />
+        </div>
+        <h3 className="font-semibold text-xl mb-2">Cloud & DevOps</h3>
+        <p className="text-sm text-gray-400 mb-4">
+          Deploying and managing applications on cloud platforms with CI/CD
+          pipelines and monitoring.
+        </p>
+        <ul className="text-sm text-gray-400 space-y-2">
+          <li>• AWS / Vercel Hosting</li>
+          <li>• CI/CD Pipelines</li>
+          <li>• Monitoring</li>
+        </ul>
+      </motion.div>
+    </motion.div>
+  </div>
+</motion.section>
 
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
