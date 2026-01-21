@@ -215,20 +215,20 @@ export default function Home() {
     description: "Clear communication and team-first mindset.",
   },
 ].map(({ icon: Icon, title, description }) => (
-    <motion.div
+   <motion.div
   key={title}
   variants={itemVariants}
-  whileHover={{ scale: 1.05, y: -6 }}
-  className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
+  whileHover={{ y: -6 }}
+  className="p-6 rounded-xl border border-gray-800"
 >
-  <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+  <div className="w-12 h-12 mb-6 rounded-lg bg-teal-400/10 flex items-center justify-center">
     <Icon className="w-6 h-6 text-teal-400" />
   </div>
 
-  <h3 className="font-semibold mb-2">{title}</h3>
+  <h3 className="font-semibold text-xl mb-3">{title}</h3>
   <p className="text-sm text-gray-400">{description}</p>
 </motion.div>
-))}  
+))}
   
     {/* Skills */}
     <motion.div
