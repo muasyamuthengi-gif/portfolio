@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import {
   Code2,
-  Palette,
+  Paintbrush,
   Zap,
   Users,
 } from "lucide-react";
@@ -202,7 +202,7 @@ export default function Home() {
     {
       title: "Design Systems",
       description: "Creating cohesive design systems and component libraries.",
-      icon: Palette,
+      icon: Paintbrush,
     },
     {
       title: "Performance",
@@ -221,7 +221,7 @@ export default function Home() {
       whileHover={{ scale: 1.05, y: -6 }}
       className="p-6 rounded-xl border border-gray-800 hover:border-teal-400/60 transition"
     >
-      <div className="w-10 h-10 mb-4 rounded-md bg-teal-400/10 flex items-center justify-center">
+      <Paintbrush className="w-6 h-6 mb-4 text-teal-400 flex items-center justify-center" />
         <Icon className="w-5 h-5 text-teal-400" />
       </div>
 
