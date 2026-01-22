@@ -284,25 +284,25 @@ export default function Home() {
     </motion.div>
   </div>
 </motion.section>
-      {/* ================= PROJECTS ================= */
-projects = [
+      {/* ================= PROJECTS ================= */}
+const projects = [
   {
     title: "Blog Website",
     description:
       "A modern blog platform with clean UI, responsive layout, and optimized performance.",
-    image: "/projects/blog.png", // <-- your uploaded image
+    image: "/projects/blog.png",
   },
   {
     title: "Portfolio Website",
     description:
-      "Personal portfolio showcasing projects, skills, and contact information.",
-    image: "/projects/portfolio.png", // <-- your uploaded image
+      "Personal portfolio showcasing projects, skills, and experience with smooth animations.",
+    image: "/projects/portfolio.png",
   },
   {
     title: "Demo Web App",
     description:
-      "A demo web application built to showcase UI/UX, animations, and component structure.",
-    image: "/projects/demo.png", // placeholder/demo image
+      "A demo application built with Next.js, Tailwind CSS, and Framer Motion.",
+    image: "/projects/demo.png",
   },
 ];
 
@@ -338,7 +338,7 @@ projects = [
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover hover:scale-105 transition duration-500"
+              className="w-full h-full object-cover"
             />
           </div>
 
