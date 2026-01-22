@@ -17,6 +17,26 @@ import {
   Zap,
   Users,
 } from "lucide-react";
+const projects = [
+  {
+    title: "Blog Website",
+    description:
+      "A modern blog platform with clean UI, responsive layout, and optimized performance.",
+    image: "/projects/blog.png",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio showcasing projects, skills, and experience.",
+    image: "/projects/portfolio.png",
+  },
+  {
+    title: "Demo Website",
+    description:
+      "A demo website built to showcase UI/UX and frontend skills.",
+    image: "/projects/demo.png",
+  },
+];
 
 /* ================= ANIMATIONS ================= */
 
@@ -285,29 +305,6 @@ export default function Home() {
   </div>
 </motion.section>
       
-const projects = [
-  {
-    title: "Blog Website",
-    description:
-      "A modern blog platform with clean UI, responsive layout, and optimized performance.",
-    image: "/projects/blog.png",
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "Personal portfolio showcasing projects, skills, and experience.",
-    image: "/projects/portfolio.png",
-  },
-  {
-    title: "Demo Website",
-    description:
-      "A demo landing page built with modern UI and smooth animations.",
-    image: "/projects/demo.png",
-  },
-  ];
-   export default function Page() {
-  return (
-    <>
       {/* ================= PROJECTS ================= */}
       <motion.section
         id="projects"
