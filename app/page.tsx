@@ -25,9 +25,9 @@ const projects = [
     image: "/projects/blog.png",
   },
   {
-    title: "Portfolio Website",
+    title: "Trading Journal",
     description:
-      "A personal portfolio showcasing projects, skills, and experience.",
+      "A trading journal application for tracking trades, analyzing performance, and improving trading discipline.",
     image: "/projects/portfolio.png",
   },
   {
