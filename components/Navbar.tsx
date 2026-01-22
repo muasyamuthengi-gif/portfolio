@@ -9,8 +9,9 @@ import {
   Menu,
   X,
 } from "lucide-react";
+
 // Data structures
-  navigation = [
+  const navigation = [
     { name: "About",       href: "#about" },
     { name: "Projects",    href: "#projects" },
     { name: "Services",    href: "#services" },
