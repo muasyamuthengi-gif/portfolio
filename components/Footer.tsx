@@ -1,81 +1,83 @@
 "use client";
 
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-800 px-6 py-12">
-      <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-3 items-center">
+    <footer className="border-t border-white/10 px-6 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
         
         {/* LEFT */}
         <div>
-          <p className="text-xl font-bold">
+          <p className="text-xl font-semibold">
             Bonface<span className="text-teal-400">.</span>
           </p>
-          <p className="text-sm text-gray-400 mt-2 max-w-sm">
-            Building modern, scalable, and user‑focused web experiences with
-            performance and precision.
+          <p className="mt-4 text-sm text-gray-400 max-w-sm">
+            Building accessible, pixel‑perfect digital experiences for the web.
           </p>
         </div>
 
         {/* CENTER */}
-        <div className="flex justify-center">
-          <ul className="flex gap-6 text-sm text-gray-400">
-            {[
-              ["Home", "#home"],
-              ["About", "#about"],
-              ["Projects", "#projects"],
-              ["Services", "#services"],
-              ["Contact", "#contact"],
-            ].map(([label, href]) => (
-              <li key={label}>
+        <div>
+          <p className="text-sm font-semibold tracking-widest text-white mb-4">
+            QUICK LINKS
+          </p>
+          <ul className="space-y-3 text-sm text-gray-400">
+            {["About", "Projects", "Services", "Contact"].map((item) => (
+              <li key={item}>
                 <a
-                  href={href}
+                  href={`#${item.toLowerCase()}`}
                   className="hover:text-teal-400 transition"
                 >
-                  {label}
+                  {item}
                 </a>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* RIGHT — SOCIAL ICONS */}
-        <div className="flex md:justify-end gap-4 text-gray-400">
-          <a
-            href="https://github.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition"
-          >
-            <Github className="w-5 h-5" />
-          </a>
+        {/* RIGHT */}
+        <div>
+          <p className="text-sm font-semibold tracking-widest text-white mb-4">
+            CONNECT
+          </p>
 
-          <a
-            href="https://linkedin.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
+          {/* Social Icons */}
+          <div className="flex gap-3 mb-4">
+            {[
+              { icon: Github, href: "https://github.com/" },
+              { icon: Linkedin, href: "https://linkedin.com/" },
+              { icon: Twitter, href: "https://twitter.com/" },
+              { icon: Mail, href: "mailto:hello@example.com" },
+            ].map(({ icon: Icon, href }, i) => (
+              <a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center rounded-md
+                           bg-white/5 border border-white/10
+                           text-gray-400 hover:text-white hover:border-teal-400/40
+                           transition"
+              >
+                <Icon size={18} />
+              </a>
+            ))}
+          </div>
 
-          <a
-            href="https://twitter.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition"
-          >
-            <Twitter className="w-5 h-5" />
-          </a>
+          {/* Email */}
+          <p className="text-sm text-gray-400">
+            hello@example.com
+          </p>
         </div>
       </div>
 
       {/* BOTTOM BAR */}
-      <div className="mt-10 border-t border-gray-800 pt-6 text-sm text-gray-500 flex justify-between max-w-7xl mx-auto">
+      <div className="mt-16 pt-6 border-t border-white/10 text-sm text-gray-500 flex flex-col md:flex-row justify-between gap-4 max-w-7xl mx-auto">
         <p>© {new Date().getFullYear()} Bonface. All rights reserved.</p>
         <p>
-          Built with <span className="text-teal-400">Next.js</span> &{" "}
+          Built with{" "}
+          <span className="text-teal-400">Next.js</span> &{" "}
           <span className="text-teal-400">Tailwind CSS</span>
         </p>
       </div>
