@@ -284,9 +284,7 @@ export default function Home() {
     </motion.div>
   </div>
 </motion.section>
-      "use client";
-"use client";
-
+      
 import { motion } from "framer-motion";
 
 /* ================= PROJECTS DATA ================= */
@@ -300,13 +298,13 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "Personal portfolio showcasing projects, skills, and contact information.",
+      "Personal portfolio showcasing projects, skills, and experience.",
     image: "/projects/portfolio.png",
   },
   {
-    title: "Demo Web App",
+    title: "Demo SaaS Website",
     description:
-      "A demo web application built to showcase UI/UX, animations, and component structure.",
+      "A demo SaaS landing page with marketing sections and CTA-focused design.",
     image: "/projects/demo.png",
   },
 ];
@@ -315,10 +313,7 @@ export default function Page() {
   return (
     <>
       {/* ================= PROJECTS ================= */}
-      <motion.section
-        id="projects"
-        className="px-6 py-16"
-      >
+      <motion.section id="projects" className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-16">
             Featured Projects
@@ -326,28 +321,22 @@ export default function Page() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <motion.div
+              <div
                 key={project.title}
-                whileHover={{ y: -6 }}
                 className="rounded-xl border border-gray-800 overflow-hidden"
               >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full aspect-video object-cover"
+                />
                 <div className="p-6">
-                  <h3 className="font-semibold mb-2">
-                    {project.title}
-                  </h3>
+                  <h3 className="font-semibold mb-2">{project.title}</h3>
                   <p className="text-sm text-gray-400">
                     {project.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -355,6 +344,7 @@ export default function Page() {
     </>
   );
 }
+
 
 {/* ================= SERVICES ================= */}
 <motion.section
