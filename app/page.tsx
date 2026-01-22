@@ -284,7 +284,11 @@ export default function Home() {
     </motion.div>
   </div>
 </motion.section>
-      {/* ================= PROJECTS ================= */}
+      "use client";
+
+import { motion } from "framer-motion";
+
+      {/* ================= PROJECTS DATA ================= */
 const projects = [
   {
     title: "Blog Website",
@@ -295,67 +299,72 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "Personal portfolio showcasing projects, skills, and experience with smooth animations.",
+      "Personal portfolio showcasing projects, skills, and contact information.",
     image: "/projects/portfolio.png",
   },
   {
     title: "Demo Web App",
     description:
-      "A demo application built with Next.js, Tailwind CSS, and Framer Motion.",
+      "A demo web application built to showcase UI/UX, animations, and component structure.",
     image: "/projects/demo.png",
   },
 ];
 
-<motion.section
-  id="projects"
-  className="px-6 py-16"
-  variants={sectionVariants}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true }}
->
-  <div className="max-w-7xl mx-auto">
-    <h2 className="text-3xl md:text-4xl font-bold mb-16">
-      Featured Projects
-    </h2>
+export default function Page() {
+  return (
+    <>
+      {/* ================= PROJECTS ================= */}
+      <motion.section
+        id="projects"
+        className="px-6 py-16"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16">
+            Featured Projects
+          </h2>
 
-    <motion.div
-      className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
-      {projects.map((project) => (
-        <motion.div
-          key={project.title}
-          variants={itemVariants}
-          whileHover={{ y: -6 }}
-          className="rounded-xl border border-gray-800 overflow-hidden bg-black"
-        >
-          {/* IMAGE */}
-          <div className="aspect-video overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {projects.map((project) => (
+              <motion.div
+                key={project.title}
+                variants={itemVariants}
+                whileHover={{ y: -6 }}
+                className="rounded-xl border border-gray-800 overflow-hidden bg-black"
+              >
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                  />
+                </div>
 
-          {/* CONTENT */}
-          <div className="p-6">
-            <h3 className="font-semibold mb-2">
-              {project.title}
-            </h3>
-            <p className="text-sm text-gray-400">
-              {project.description}
-            </p>
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</motion.section>
+                <div className="p-6">
+                  <h3 className="font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    {project.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+    </>
+  );
+}
 
 {/* ================= SERVICES ================= */}
 <motion.section
