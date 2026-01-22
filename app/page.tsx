@@ -284,49 +284,79 @@ export default function Home() {
     </motion.div>
   </div>
 </motion.section>
-       
-     {/* ================= PROJECTS ================= */}
-      <motion.section
-        id="projects"
-        className="px-6 py-16"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16">
-            Featured Projects
-          </h2>
+       /* ================= PROJECTS ================= */
+const projects = [
+  {
+    title: "Blog Website",
+    description:
+      "A modern blog platform with clean UI, responsive layout, and optimized performance.",
+    image: "/projects/blog.png", // <-- your uploaded image
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "Personal portfolio showcasing projects, skills, and contact information.",
+    image: "/projects/portfolio.png", // <-- your uploaded image
+  },
+  {
+    title: "Demo Web App",
+    description:
+      "A demo web application built to showcase UI/UX, animations, and component structure.",
+    image: "/projects/demo.png", // placeholder/demo image
+  },
+];
 
-          <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {["E‑Commerce Platform", "SaaS Dashboard", "Portfolio Website"].map(
-              (title) => (
-                <motion.div
-                  key={title}
-                  variants={itemVariants}
-                  whileHover={{ y: -6 }}
-                  className="rounded-xl border border-gray-800 overflow-hidden"
-                >
-                  <div className="aspect-video bg-gray-900" />
-                  <div className="p-6">
-                    <h3 className="font-semibold mb-2">{title}</h3>
-                    <p className="text-sm text-gray-400">
-                      High‑performance web application.
-                    </p>
-                  </div>
-                </motion.div>
-              )
-            )}
-          </motion.div>
-        </div>
-      </motion.section>
+<motion.section
+  id="projects"
+  className="px-6 py-16"
+  variants={sectionVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold mb-16">
+      Featured Projects
+    </h2>
+
+    <motion.div
+      className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {projects.map((project) => (
+        <motion.div
+          key={project.title}
+          variants={itemVariants}
+          whileHover={{ y: -6 }}
+          className="rounded-xl border border-gray-800 overflow-hidden bg-black"
+        >
+          {/* IMAGE */}
+          <div className="aspect-video overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover hover:scale-105 transition duration-500"
+            />
+          </div>
+
+          {/* CONTENT */}
+          <div className="p-6">
+            <h3 className="font-semibold mb-2">
+              {project.title}
+            </h3>
+            <p className="text-sm text-gray-400">
+              {project.description}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</motion.section>
+
 {/* ================= SERVICES ================= */}
 <motion.section
   id="services"
