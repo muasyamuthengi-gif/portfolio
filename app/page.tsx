@@ -31,9 +31,9 @@ const projects = [
     image: "/projects/portfolio.png",
   },
   {
-    title: "Demo Website",
+    title: "UI Showcase",
     description:
-      "A demo website built to showcase UI/UX and frontend skills.",
+      "A polished demo project showcasing modern UI/UX patterns, smooth animations, and responsive layouts built with React and Tailwind CSS.",
     image: "/projects/demo.png",
   },
 ];
@@ -138,9 +138,9 @@ export default function Home() {
 
             <motion.div variants={itemVariants} className="mt-14 flex gap-14">
               {[
-                ["2+", "Years Experience"],
-                ["50+", "Projects"],
-                ["30+", "Clients"],
+                ["1+", "Years Experience"],
+                ["10+", "Projects"],
+                ["10+", "Clients"],
               ].map(([value, label]) => (
                 <div key={label}>
                   <p className="text-3xl font-bold">{value}</p>
