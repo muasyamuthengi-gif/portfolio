@@ -46,13 +46,46 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8 text-gray-400">
-          <Link href="/" className="hover:text-white transition">Home</Link>
-          <Link href="/about" className="hover:text-white transition">About</Link>
-          <Link href="/projects" className="hover:text-white transition">Projects</Link>
-          <Link href="/services" className="hover:text-white transition">Services</Link>
-          <Link href="/contact" className="hover:text-white transition">Contact</Link>
-        </div>
+<div className="hidden md:flex items-center gap-10">
+  {/* Links */}
+  <div className="flex gap-8 text-gray-400">
+    <Link href="/" className="hover:text-white transition">Home</Link>
+    <Link href="/about" className="hover:text-white transition">About</Link>
+    <Link href="/projects" className="hover:text-white transition">Projects</Link>
+    <Link href="/services" className="hover:text-white transition">Services</Link>
+    <Link href="/contact" className="hover:text-white transition">Contact</Link>
+  </div>
+
+  {/* Social Icons */}
+  <div className="flex items-center gap-4 text-gray-400">
+    <a
+      href="https://github.com/muasyamuthengi-gif"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition"
+    >
+      <Github className="w-5 h-5" />
+    </a>
+
+    <a
+      href="https://linkedin.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition"
+    >
+      <Linkedin className="w-5 h-5" />
+    </a>
+
+    <a
+      href="https://twitter.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition"
+    >
+      <Twitter className="w-5 h-5" />
+    </a>
+  </div>
+</div>
 
         {/* Mobile Button */}
         <button
