@@ -285,10 +285,11 @@ export default function Home() {
   </div>
 </motion.section>
       "use client";
+"use client";
 
 import { motion } from "framer-motion";
 
-      {/* ================= PROJECTS DATA ================= */
+/* ================= PROJECTS DATA ================= */
 const projects = [
   {
     title: "Blog Website",
@@ -317,35 +318,24 @@ export default function Page() {
       <motion.section
         id="projects"
         className="px-6 py-16"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-16">
             Featured Projects
           </h2>
 
-          <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
               <motion.div
                 key={project.title}
-                variants={itemVariants}
                 whileHover={{ y: -6 }}
-                className="rounded-xl border border-gray-800 overflow-hidden bg-black"
+                className="rounded-xl border border-gray-800 overflow-hidden"
               >
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
@@ -359,7 +349,7 @@ export default function Page() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </motion.section>
     </>
