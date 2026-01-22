@@ -284,8 +284,8 @@ export default function Home() {
     </motion.div>
   </div>
 </motion.section>
-       /* ================= PROJECTS ================= */
-const projects = [
+      {/* ================= PROJECTS ================= */
+projects = [
   {
     title: "Blog Website",
     description:
