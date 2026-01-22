@@ -285,9 +285,6 @@ export default function Home() {
   </div>
 </motion.section>
       
-import { motion } from "framer-motion";
-
-/* ================= PROJECTS DATA ================= */
 const projects = [
   {
     title: "Blog Website",
@@ -302,18 +299,23 @@ const projects = [
     image: "/projects/portfolio.png",
   },
   {
-    title: "Demo SaaS Website",
+    title: "Demo Website",
     description:
-      "A demo SaaS landing page with marketing sections and CTA-focused design.",
+      "A demo landing page built with modern UI and smooth animations.",
     image: "/projects/demo.png",
   },
-];
-
-export default function Page() {
+  ];
+   export default function Page() {
   return (
     <>
       {/* ================= PROJECTS ================= */}
-      <motion.section id="projects" className="px-6 py-16">
+      <motion.section
+        id="projects"
+        className="px-6 py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-16">
             Featured Projects
@@ -321,30 +323,32 @@ export default function Page() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
-              <div
+              <motion.div
                 key={project.title}
+                whileHover={{ y: -6 }}
                 className="rounded-xl border border-gray-800 overflow-hidden"
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full aspect-video object-cover"
+                  className="aspect-video object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="font-semibold mb-2">{project.title}</h3>
+                  <h3 className="font-semibold mb-2">
+                    {project.title}
+                  </h3>
                   <p className="text-sm text-gray-400">
                     {project.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </motion.section>
     </>
   );
-}
-
+}   
 
 {/* ================= SERVICES ================= */}
 <motion.section
