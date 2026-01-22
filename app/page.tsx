@@ -341,11 +341,7 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </motion.section>
-    </>
-  );
-}   
+        </div>  
 
 {/* ================= SERVICES ================= */}
 <motion.section
