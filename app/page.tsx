@@ -587,53 +587,6 @@ export default function Home() {
     </div>
   </div>
 </section>
-
-      {/* ================= FOOTER ================= */}
-      <footer className="border-t border-gray-800 px-6 py-16 bg-zinc-950">
-        <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
-          <div>
-            <p className="text-xl font-bold">
-              Bonface<span className="text-teal-400">.</span>
-            </p>
-            <p className="text-sm text-gray-400 mt-2 max-w-sm">
-              Building accessible, pixel‑perfect digital experiences for the web.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold tracking-widest mb-4">
-              QUICK LINKS
-            </p>
-            <ul className="space-y-3 text-sm text-gray-400">
-              {["About", "Projects", "Services", "Contact"].map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="hover:text-teal-400 transition"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold tracking-widest mb-4">CONNECT</p>
-            <p className="text-sm text-gray-400">
-              muasyamuthengi@gmail.com
-            </p>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-14 pt-6 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Bonface. All rights reserved.</p>
-          <p>
-            Built with <span className="text-teal-400">Next.js</span> &{" "}
-            <span className="text-teal-400">Tailwind CSS</span>
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }
