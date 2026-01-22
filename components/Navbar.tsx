@@ -10,90 +10,142 @@ import {
   X,
 } from "lucide-react";
 
-// Data structures
-  const navigation = [
-    { name: "About",       href: "#about" },
-    { name: "Projects",    href: "#projects" },
-    { name: "Services",    href: "#services" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact",     href: "#contact" }
-  ]
+const navigation = [
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Services", href: "#services" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Contact", href: "#contact" },
+];
 
-  const socialLinks = [
-    { name: "GitHub",  icon: Github,  href: "https://github.com/..." },
-    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/..." },
-    { name: "Twitter",  icon: Twitter,  href: "https://twitter.com/..." }
-  ]
+const socialLinks = [
+  {
+    name: "GitHub",
+    icon: Github,
+    href: "https://github.com/...",
+  },
+  {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "https://linkedin.com/...",
+  },
+  {
+    name: "Twitter",
+    icon: Twitter,
+    href: "https://twitter.com/...",
+  },
+];
 
-  // Layout structure
-  <header fixed="top" zIndex="50" background="background/80" backdropBlur="md" borderBottom>
-    <nav maxWidth="7xl" container padding="4" display="flex" justify="between" align="center">
+export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-      // Left: Logo/Branding
-      <link href="/">
-        <text bold size="xl">Bonface</text>
-        <text small primary>Developer</text>
-      </link>
+  return (
+    <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
+      <nav className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+        {/* Left: Brand */}
+        <Link href="/" className="flex flex-col">
+          <span className="text-xl font-bold">Bonface</span>
+          <span className="text-xs text-teal-400">Developer</span>
+        </Link>
 
-      // Center: Desktop Navigation (hidden on mobile)
-      <nav hidden="mobile" display="flex-lg" gap="8">
-        for each navItem in navigation:
-          <link href={navItem.href} muted hover="foreground">
-            {navItem.name}
-          </link>
+        {/* Center: Desktop Navigation */}
+        <div className="hidden md:flex gap-8 text-gray-400">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="hover:text-white transition"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Right: Desktop Actions */}
+        <div className="hidden md:flex items-center gap-6">
+          {/* Social Icons */}
+          <div className="flex gap-3">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                >
+                  <Icon className="w-5 h-5" />
+                  <span className="sr-only">{social.name}</span>
+                </a>
+              );
+            })}
+          </div>
+
+          {/* CTA */}
+          <a
+            href="#contact"
+            className="px-4 py-2 rounded-md bg-teal-400 text-black font-semibold hover:bg-teal-300 transition"
+          >
+            Hire Me
+          </a>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-gray-400 hover:text-white transition"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <span className="sr-only">Toggle menu</span>
+        </button>
       </nav>
 
-      // Right Section: Desktop (hidden on mobile)
-      <div hidden="mobile" display="flex-lg" gap="4" align="center">
-        
-        // Social Icons Row
-        <row gap="2">
-          for each social in socialLinks:
-            <link href={social.href} external target="_blank" muted hover="foreground">
-              <icon size="5" />
-              <srOnly>{social.name}</srOnly>
-            </link>
-        </row>
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-black px-6 py-6 space-y-6">
+          {/* Mobile Navigation */}
+          <div className="flex flex-col gap-4">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-gray-400 hover:text-white transition"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
 
-        // CTA Button
-        <button primary onClick="scrollTo(#contact)">
-          Hire Me
-        </button>
+          {/* Mobile Social Icons */}
+          <div className="flex gap-4 pt-4 border-t border-white/10">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              );
+            })}
+          </div>
 
-      </div>
-
-      // Mobile Menu Toggle Button (visible only on mobile)
-      <button mobile-only muted hover="foreground" onClick={toggleMobileMenu}>
-        {mobileMenuOpen ? <X size="6" /> : <Menu size="6" />}
-        <srOnly>Toggle menu</srOnly>
-      </button>
-
-    </nav>
-
-    // Mobile Menu Dropdown (visible when mobileMenuOpen === true)
-    if mobileMenuOpen:
-      <div mobile-only background="background" borderBottom padding="6" space="4">
-        
-        // Mobile Navigation Links
-        for each navItem in navigation:
-          <link href={navItem.href} block size="base" muted onClick={closeMobileMenu}>
-            {navItem.name}
-          </link>
-
-        // Mobile Social Icons (with border divider)
-        <row gap="4" paddingTop="4" borderTop>
-          for each social in socialLinks:
-            <link href={social.href} external muted>
-              <icon size="5" />
-            </link>
-        </row>
-
-        // Mobile CTA Button (full width)
-        <button primary fullWidth onClick={closeMobileMenu}>
-          Hire Me
-        </button>
-
-      </div>
-
-  </header>
+          {/* Mobile CTA */}
+          <a
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block w-full text-center px-4 py-2 rounded-md bg-teal-400 text-black font-semibold hover:bg-teal-300 transition"
+          >
+            Hire Me
+          </a>
+        </div>
+      )}
+    </header>
+  );
 }
