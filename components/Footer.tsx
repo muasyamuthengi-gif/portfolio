@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Email */}
           <p className="text-sm text-gray-400">
-            hello@example.com
+            hello@muasyamuthegi@gmail.com
           </p>
         </div>
       </div>
