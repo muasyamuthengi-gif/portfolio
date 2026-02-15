@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-{
-  "dependencies": {
-    "resend": "^6.9.2"
-  }
-}
-=======
 {
   "name": "portfolio",
   "version": "0.1.0",
@@ -20,7 +13,8 @@
     "lucide-react": "^0.562.0",
     "next": "16.1.2",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "resend": "^6.9.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
@@ -33,4 +27,3 @@
     "typescript": "^5"
   }
 }
->>>>>>> e968808c4a275f5dc5dcb5e9b70c7d2e0406b182
